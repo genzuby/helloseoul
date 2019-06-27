@@ -9,7 +9,7 @@ const CardBody = props => {
         style={{ backgroundImage: `url(${props.cardBgUrl})` }}
       />
       <h3>{props.cardName}</h3>
-      <p>{props.cardDesc}</p>
+      <p className="--card--desc">{props.cardDesc}</p>
     </div>
   );
 };
