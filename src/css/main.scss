@@ -59,7 +59,8 @@ body {
   }
 }
 
-.--greeting--text {
+.--greeting--text,
+.--greeting--pics--link {
   position: absolute;
   z-index: 2;
   left: 50%;
@@ -67,6 +68,7 @@ body {
   color: #fff;
   width: 100;
   white-space: nowrap;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
   animation-name: textanimation;
   animation-duration: 2s;
   animation-fill-mode: both;
@@ -78,8 +80,28 @@ body {
       font-size: 0;
     }
     100% {
-      top: 20%;
-      font-size: 3rem;
+      top: 18%;
+      font-size: 3.6rem;
+    }
+  }
+}
+
+.--greeting--pics--link {
+  animation-name: linkanimation;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--point--yellow);
+  }
+
+  @keyframes linkanimation {
+    0% {
+      top: 0%;
+      font-size: 0;
+    }
+    100% {
+      top: 28%;
+      font-size: 1.4rem;
     }
   }
 }
