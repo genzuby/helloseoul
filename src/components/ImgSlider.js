@@ -3,9 +3,9 @@ import React from "react";
 const imgList = [
   "images/seoul-day1.jpg",
   "images/seoul-day2.jpg",
-  "images/seoul-day3.jpg",
   "images/seoul-night1.jpg",
   "images/seoul-night2.jpg",
+  "images/seoul-day3.jpg",
   "images/seoul-night3.jpg"
 ];
 

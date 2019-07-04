@@ -1,9 +1,9 @@
 .Cards {
   display: grid;
-  grid: auto / repeat(4, 230px);
-  grid-column-gap: 1em;
-  width: 60%;
-  margin: 4em auto;
+  grid: auto / repeat(auto-fit, 220px);
+  grid-gap: 1em;
+  margin: 3em 19%;
+  width: 62%;
 
   .--card--design {
     background: #fff;
@@ -37,7 +37,7 @@
       font-weight: 100;
       font-size: 0;
       padding: 0 0.5em;
-      transition: 0.2s ease-in;
+      transition: 0.2s ease-in-out;
     }
   }
 }

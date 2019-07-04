@@ -1,10 +1,19 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Nanum+Gothic|Roboto&display=swap");
 
 $desktop: 660px;
 @mixin desktop {
   @media screen and (max-width: $desktop) {
     @content;
   }
+}
+
+:root {
+  --point--yellow: #f88f07;
+  --point--blue: #0f82ff;
+  --point--green: #0fff23;
+  --point--pink: #de5b6d;
+  --bg--dark--color: #262626;
+  --bg--gray--color: #888888;
 }
 
 * {
@@ -15,7 +24,17 @@ body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
 }
 
 .App {
@@ -48,19 +67,19 @@ body {
   color: #fff;
   width: 100;
   white-space: nowrap;
-  animation-name: text-animation;
+  animation-name: textanimation;
   animation-duration: 2s;
   animation-fill-mode: both;
   animation-delay: 6s;
 
-  @keyframes text-animation {
+  @keyframes textanimation {
     0% {
       top: 0%;
       font-size: 0;
     }
     100% {
       top: 20%;
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
   }
 }
@@ -71,12 +90,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  animation-name: big--image;
+  animation-name: bigimage;
   animation-duration: 3s;
   animation-fill-mode: both;
   animation-delay: now;
 
-  @keyframes big--image {
+  @keyframes bigimage {
     0% {
       height: 0%;
     }
@@ -95,13 +114,13 @@ body {
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    animation-name: small--image;
+    animation-name: smallimage;
     animation-duration: 3s;
     animation-fill-mode: both;
     animation-delay: 4s;
   }
 
-  @keyframes small--image {
+  @keyframes smallimage {
     0% {
       width: 0px;
       filter: brightness(20%);

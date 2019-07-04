@@ -1,16 +1,19 @@
 import React from "react";
-import ImgSlider from "./ImgSlider";
-import Cards from "./Cards";
-import "../css/main.scss";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./Home";
+import WifiInfo from "./cardApps/WifiInfo";
+import EatInfo from "./cardApps/EatInfo";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1 className="--greeting--text">HELLO SEOUL!</h1>
-      <div className="--top--image--group">
-        <ImgSlider />
-      </div>
-      <Cards />
+    <div>
+      <BrowserRouter>
+        <div>
+          <Route path="/" exact component={Home} />
+          <Route path="/markets" exact component={EatInfo} />
+          <Route path="/wifis" exact component={WifiInfo} />
+        </div>
+      </BrowserRouter>
     </div>
   );
 };
