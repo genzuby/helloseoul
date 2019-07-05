@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { currentLocation } from "../../actions";
 import ImageCard from "./ImageCard";
 import MapContainer from "./MapContainer";
 import _ from "lodash";
@@ -35,6 +36,18 @@ class EatInfoDetail extends Component {
         </p>
       );
     }
+  };
+
+  renderMap = (loc, title) => {
+    const { lat, lng } = loc;
+    this.props.currentLocation(loc);
+    return (
+      <MapContainer
+        dataArry={[{ lat, lng, locname: title }]}
+        zoom={17}
+        centerLoc={{ lat, lng }}
+      />
+    );
   };
 
   render() {
@@ -75,20 +88,10 @@ class EatInfoDetail extends Component {
           {this.renderDesc("About Here", marketDetail.main.overview, "blue")}
         </div>
         <div className="--detailinfo--selected--map">
-          <MapContainer
-            dataArry={[
-              {
-                lat: marketDetail.main.mapy,
-                lng: marketDetail.main.mapx,
-                locname: marketDetail.main.title
-              }
-            ]}
-            zoom={17}
-            centerLoc={{
-              lat: marketDetail.main.mapy,
-              lng: marketDetail.main.mapx
-            }}
-          />
+          {this.renderMap(
+            { lat: marketDetail.main.mapy, lng: marketDetail.main.mapx },
+            marketDetail.main.title
+          )}
         </div>
         <div className="--detailinfo--selected--imgs">{this.renderImg()}</div>
       </div>
@@ -102,4 +105,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(EatInfoDetail);
+export default connect(
+  mapStateToProps,
+  { currentLocation }
+)(EatInfoDetail);

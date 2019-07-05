@@ -12,6 +12,7 @@ const cardInfo = [
   {
     imgName: "WALK",
     imgUrl: "images/seoul-walk1.jpg",
+    url: "walks",
     imgDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit saepe laborum ab placeat."
   },

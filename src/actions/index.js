@@ -2,15 +2,22 @@ import seoulOpenApi from "../api/seoulOpenApi";
 import axios from "axios";
 import _ from "lodash";
 import {
-  TOUR_LIST_URL,
-  tourInfo,
-  tourDesc,
-  tourPic
+  TOUR_MARKET_LIST_URL,
+  tourMarketInfo,
+  tourMarketDesc,
+  tourMarketPic,
+  TOUR_WALK_LIST_URL,
+  tourWalkMain,
+  tourWalkDesc1,
+  tourWalkDesc2,
+  tourWalkPic
 } from "../api/koreaTourOpenApi";
 import {
   GEO_CURR_LOC,
   FETCH_MARKETS,
   FETCH_MARKETINFO,
+  FETCH_WALKS,
+  FETCH_WALKINFO,
   FETCH_WIFIS,
   TRANS_AREANAME
 } from "./constInfo";
@@ -42,7 +49,7 @@ export const fetchWifiAll = () => dispatch => {
 };
 
 export const fetchTranditionalMarketList = () => async dispatch => {
-  const response = await axios.get(TOUR_LIST_URL);
+  const response = await axios.get(TOUR_MARKET_LIST_URL);
 
   dispatch({
     type: FETCH_MARKETS,
@@ -51,20 +58,54 @@ export const fetchTranditionalMarketList = () => async dispatch => {
 };
 
 export const fetchDetailMarketAll = id => async dispatch => {
-  const responseInfo = await axios.get(tourInfo(id)).then(response => {
+  const responseInfo = await axios.get(tourMarketInfo(id)).then(response => {
     return { main: response.data.response.body.items.item };
   });
 
-  const responseDesc = await axios.get(tourDesc(id)).then(response => {
+  const responseDesc = await axios.get(tourMarketDesc(id)).then(response => {
     return { desc: response.data.response.body.items.item };
   });
 
-  const responsePic = await axios.get(tourPic(id)).then(response => {
+  const responsePic = await axios.get(tourMarketPic(id)).then(response => {
     return { pic: response.data.response.body.items.item };
   });
 
   dispatch({
     type: FETCH_MARKETINFO,
     payload: _.merge(responseInfo, responseDesc, responsePic)
+  });
+};
+
+export const fetchWalkList = () => async dispatch => {
+  const response = await axios.get(TOUR_WALK_LIST_URL);
+
+  dispatch({
+    type: FETCH_WALKS,
+    payload: response.data.response.body.items.item
+  });
+};
+
+export const fetchDetailWalkAll = id => async dispatch => {
+  const responseInfo = await axios.get(tourWalkMain(id)).then(response => {
+    return { main: response.data.response.body.items.item };
+  });
+
+  const responseDesc1 = await axios.get(tourWalkDesc1(id)).then(response => {
+    return { desc1: response.data.response.body.items.item };
+  });
+
+  const responseDesc2 = await axios.get(tourWalkDesc2(id)).then(response => {
+    if (response.data.response.body) {
+      return { desc2: response.data.response.body.items.item };
+    }
+  });
+
+  const responsePic = await axios.get(tourWalkPic(id)).then(response => {
+    return { pic: response.data.response.body.items.item };
+  });
+
+  dispatch({
+    type: FETCH_WALKINFO,
+    payload: _.merge(responseInfo, responseDesc1, responseDesc2, responsePic)
   });
 };

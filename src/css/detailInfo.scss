@@ -90,6 +90,7 @@
 
       img {
         width: 16em;
+        height: 14em;
         object-fit: cover;
       }
       h3 {
@@ -114,7 +115,7 @@
 //for reuse
 .--detailinfo--selected--imgs {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(370px, auto));
   grid-column-gap: 2px;
   grid-auto-rows: 10px;
   justify-content: center;
@@ -122,7 +123,7 @@
   padding: 0;
 
   img {
-    width: 250px;
+    width: 370px;
   }
 }
 
@@ -135,6 +136,10 @@
   width: 9em;
 }
 
+.--item--desc--icon--long {
+  width: 100%;
+}
+
 .--item--desc--icon--blue {
   background: var(--point--blue);
 }
@@ -145,6 +150,10 @@
 
 .--item--desc--icon--pink {
   background: var(--point--pink);
+}
+
+.--item--desc--icon--gray {
+  background: var(--point--gray);
 }
 
 .--item--homepage--link {

@@ -1,24 +1,21 @@
 import React from "react";
-import {
-  fetchTranditionalMarketList,
-  fetchDetailMarketAll
-} from "../../actions";
+import { fetchWalkList, fetchDetailWalkAll } from "../../actions";
 import { connect } from "react-redux";
 import ListObject from "./ListObject";
 import "../../css/detailInfo.scss";
 
-class EatInfo extends React.Component {
+class WalkInfo extends React.Component {
   state = {
     selectedId: null
   };
 
   componentDidMount() {
-    this.props.fetchTranditionalMarketList();
+    this.props.fetchWalkList();
   }
 
   getDetailInfo = id => {
-    this.props.fetchDetailMarketAll(id);
-    if (!this.props.marketInfo) return;
+    this.props.fetchDetailWalkAll(id);
+    if (!this.props.walkInfo) return;
     this.setState({
       selectedId: id
     });
@@ -28,11 +25,11 @@ class EatInfo extends React.Component {
     return (
       <React.Fragment>
         <ListObject
-          itemName="EAT"
-          lists={this.props.markets}
+          itemName="WALK"
+          lists={this.props.walks}
           listClick={this.getDetailInfo}
           selectedItem={this.state.selectedId}
-          listTitle="Traditional Markets : EAT, BUY & FUN"
+          listTitle="Walk in Seoul"
           listDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
               tempora reprehenderit voluptas deserunt alias reiciendis, omnis
               soluta dolorem, odio corporis sapiente numquam nihil deleniti cum
@@ -45,12 +42,12 @@ class EatInfo extends React.Component {
 
 const MapStateToProps = state => {
   return {
-    markets: state.markets,
-    marketInfo: Object.values(state.marketinfo),
+    walks: state.walks,
+    walkInfo: Object.values(state.walkinfo),
     currloc: state.currloc
   };
 };
 export default connect(
   MapStateToProps,
-  { fetchTranditionalMarketList, fetchDetailMarketAll }
-)(EatInfo);
+  { fetchWalkList, fetchDetailWalkAll }
+)(WalkInfo);
