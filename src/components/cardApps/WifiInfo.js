@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchWifiAll } from "../../actions";
+//due to http apis are not allowed in netlify server
+// import { fetchWifiAll } from "../../actions";
+import { fetchWifiListsStatic } from "../../actions";
 import MapContainer from "./MapContainer";
 import { Link } from "react-router-dom";
 import AreaOption from "./AreaOption";
@@ -8,14 +10,16 @@ import "../../css/detailInfo.scss";
 
 class WifiInfo extends React.Component {
   componentDidMount() {
-    this.props.fetchWifiAll();
+    // this.props.fetchWifiAll();
+    this.props.fetchWifiListsStatic();
+    console.log(this.props.wifis);
   }
 
   makeSoptArray = () => {
     if (!this.props.wifis) return;
     const array = this.props.wifis.flat();
     return array.map(data => {
-      return { lat: data.INSTL_Y, lng: data.INSTL_X };
+      return { lat: data.instl_y, lng: data.instl_x };
     });
   };
 
@@ -57,5 +61,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchWifiAll }
+  { fetchWifiListsStatic }
 )(WifiInfo);

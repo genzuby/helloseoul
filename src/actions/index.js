@@ -1,6 +1,7 @@
 import seoulOpenApi from "../api/seoulOpenApi";
 import axios from "axios";
 import _ from "lodash";
+import wifidata from "./wifiInfo.json";
 import {
   TOUR_MARKET_LIST_URL,
   tourMarketInfo,
@@ -42,6 +43,13 @@ export const fetchWifiLists = areaname => async dispatch => {
   } else {
     return;
   }
+};
+
+export const fetchWifiListsStatic = () => async dispatch => {
+  dispatch({
+    type: FETCH_WIFIS,
+    payload: wifidata.data
+  });
 };
 
 export const fetchWifiAll = () => dispatch => {
