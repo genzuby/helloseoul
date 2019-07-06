@@ -4,6 +4,7 @@ export const FETCH_MARKETINFO = "FETCH_MARKETINFO";
 export const FETCH_WALKS = "FETCH_WALKS";
 export const FETCH_WALKINFO = "FETCH_WALKINFO";
 export const FETCH_WIFIS = "FETCH_WIFIS";
+export const FETCH_PICS = "FETCH_PICS";
 export const TRANS_AREANAME = [
   { name: "Gangnam-gu", name_ko: "강남구", lat: 37.517189, lng: 127.04129 },
   { name: "Geumcheon-gu", name_ko: "금천구", lat: 37.455813, lng: 126.8939 },

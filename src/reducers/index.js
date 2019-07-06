@@ -5,6 +5,7 @@ import fetchMarketDetailReducer from "./fetchMarketDetailReducer";
 import fetchWalkReducer from "./fetchWalkReducer";
 import fetchWalkDetaileducer from "./fetchWalkDetaileducer";
 import fetchWifiReducer from "./fetchWifiReducer";
+import fetchPicsReducer from "./fetchPicsReducer";
 
 export default combineReducers({
   currloc: currentGeoLoc,
@@ -12,5 +13,6 @@ export default combineReducers({
   marketinfo: fetchMarketDetailReducer,
   walks: fetchWalkReducer,
   walkinfo: fetchWalkDetaileducer,
-  wifis: fetchWifiReducer
+  wifis: fetchWifiReducer,
+  pics: fetchPicsReducer
 });

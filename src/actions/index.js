@@ -1,4 +1,5 @@
 import seoulOpenApi from "../api/seoulOpenApi";
+import unsplashPicsApi from "../api/unsplashPicsApi";
 import axios from "axios";
 import _ from "lodash";
 import wifidata from "./wifiInfo.json";
@@ -20,6 +21,7 @@ import {
   FETCH_WALKS,
   FETCH_WALKINFO,
   FETCH_WIFIS,
+  FETCH_PICS,
   TRANS_AREANAME
 } from "./constInfo";
 
@@ -115,5 +117,18 @@ export const fetchDetailWalkAll = id => async dispatch => {
   dispatch({
     type: FETCH_WALKINFO,
     payload: _.merge(responseInfo, responseDesc1, responseDesc2, responsePic)
+  });
+};
+
+export const getSeoulImages = page => async dispatch => {
+  const response = await unsplashPicsApi.get("/search/photos/", {
+    params: { query: "seoul", page, per_page: 30 }
+  });
+
+  console.log(response);
+
+  dispatch({
+    type: FETCH_PICS,
+    payload: response.data.results
   });
 };

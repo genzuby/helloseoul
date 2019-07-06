@@ -63,7 +63,7 @@ class WalkInfoDetail extends Component {
     return (
       <MapContainer
         dataArry={[{ lat, lng, locname: title }]}
-        zoom={17}
+        zoom={15}
         centerLoc={{ lat, lng }}
       />
     );
