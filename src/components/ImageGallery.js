@@ -36,7 +36,7 @@ class ImageGallery extends Component {
         dataLength={this.props.pics.length}
         next={this.getMoreImages}
         hasMore={true}
-        loader={<div>Loading..</div>}
+        // loader={<div>Loading..</div>}
       >
         <div className="--image--gallery">{this.renderImg()}</div>
       </InfinteScroll>
