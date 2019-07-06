@@ -23,14 +23,13 @@ class ImageGallery extends Component {
   };
 
   getMoreImages = () => {
-    console.log("AAAAAA", this.state.page);
     const pageno = this.state.page + 1;
     this.setState({ page: pageno });
     this.props.getSeoulImages(pageno);
   };
 
   render() {
-    if (!this.props.pics) return <div>Loading...</div>;
+    if (!this.props.pics) return <div />;
 
     return (
       <InfinteScroll
@@ -50,6 +49,7 @@ const mapStateToProps = state => {
     pics: state.pics.flat()
   };
 };
+
 export default connect(
   mapStateToProps,
   { getSeoulImages }

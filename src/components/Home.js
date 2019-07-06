@@ -9,7 +9,9 @@ const Home = () => {
     <div className="App">
       <h1 className="--greeting--text">HELLO SEOUL!</h1>
       <Link to="pics">
-        <p className="--greeting--pics--link">Pictures of Seoul</p>
+        <p className="--greeting--pics--link">
+          Click here and see more Pictures of Seoul!
+        </p>
       </Link>
       <div className="--top--image--group">
         <ImgSlider />

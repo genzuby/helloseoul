@@ -2,8 +2,8 @@
   display: grid;
   grid: auto / repeat(auto-fit, 220px);
   grid-gap: 1em;
-  margin: 3em 19%;
-  width: 62%;
+  margin: 3em auto;
+  justify-content: center;
 
   .--card--design {
     background: #fff;

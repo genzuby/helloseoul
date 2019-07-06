@@ -91,10 +91,6 @@ body {
   animation-name: linkanimation;
   cursor: pointer;
 
-  &:hover {
-    color: var(--point--yellow);
-  }
-
   @keyframes linkanimation {
     0% {
       top: 0%;
@@ -102,8 +98,13 @@ body {
     }
     100% {
       top: 28%;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
+      // color: var(--point--green);
     }
+  }
+
+  &:hover {
+    color: var(--point--green);
   }
 }
 
