@@ -12,7 +12,9 @@ class ImageGalleryCard extends React.Component {
   getPicInfo() {
     if (!this.props) return;
     this.props.selectedPic(this.props.info);
+    this.props.modalHandler();
   }
+
   render() {
     const info = this.props.info;
     return (
@@ -23,14 +25,7 @@ class ImageGalleryCard extends React.Component {
             <li>Photographed by {info.user.name}</li>
             <li>{info.description}</li>
             <li>{info.alt_description}</li>
-            <li
-              onClick={() => {
-                this.getPicInfo();
-                this.props.handler();
-              }}
-            >
-              See Orignal Image
-            </li>
+            <li onClick={this.getPicInfo}>See Orignal Image</li>
           </ul>
         </div>
       </div>

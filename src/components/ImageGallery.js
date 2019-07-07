@@ -7,7 +7,7 @@ import ImageGalleryShowImage from "./ImageGalleryShowImage";
 import "../css/main.scss";
 
 class ImageGallery extends Component {
-  state = { page: 1, showModal: "none" };
+  state = { page: 1, showModal: false };
 
   componentDidMount() {
     this.props.getSeoulImages(this.state.page);
@@ -18,8 +18,14 @@ class ImageGallery extends Component {
     const picArry = this.props.pics;
     if (!picArry) return;
 
-    return picArry.map((pic, idx) => {
-      return <ImageGalleryCard handler={this.handler} key={idx} info={pic} />;
+    return picArry.map(pic => {
+      return (
+        <ImageGalleryCard
+          modalHandler={this.modalHandler}
+          key={pic.id}
+          info={pic}
+        />
+      );
     });
   };
 
@@ -29,9 +35,15 @@ class ImageGallery extends Component {
     this.props.getSeoulImages(pageno);
   };
 
-  handler = () => {
+  modalHandler = () => {
     this.setState({
-      showModal: "block"
+      showModal: true
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      showModal: false
     });
   };
 
@@ -47,7 +59,10 @@ class ImageGallery extends Component {
         >
           <div className="--image--gallery">{this.renderImg()}</div>
         </InfinteScroll>
-        <ImageGalleryShowImage showModal={this.state.showModal} />
+        <ImageGalleryShowImage
+          showModal={this.state.showModal}
+          closeModal={this.closeModal}
+        />
       </div>
     );
   }

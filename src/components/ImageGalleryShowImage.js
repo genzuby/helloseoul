@@ -10,31 +10,23 @@ class ImageGalleryShowImage extends React.Component {
     }
   };
 
-  renderHeader = () => {
-    if (this.props.selectedpic) {
-      const picinfo = this.props.selectedpic;
+  renderModal = () => {
+    if (this.props.showModal) {
       return (
-        <div>
-          <p>{picinfo.description}</p>
-          <p>{picinfo.user.name}</p>
-        </div>
+        <Modal
+          content={this.renderContent()}
+          modalClose={this.props.closeModal}
+        />
       );
     }
   };
 
   render() {
-    return (
-      <Modal
-        // header={this.renderHeader()}
-        content={this.renderContent()}
-        showModal={this.props.showModal}
-      />
-    );
+    return <div>{this.renderModal()}</div>;
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     pics: state.pics.flat(),
     selectedpic: state.selectedpic
