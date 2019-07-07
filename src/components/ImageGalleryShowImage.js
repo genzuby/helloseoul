@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "./Modal";
-import history from "../history";
 import { connect } from "react-redux";
 
 class ImageGalleryShowImage extends React.Component {
@@ -26,9 +25,9 @@ class ImageGalleryShowImage extends React.Component {
   render() {
     return (
       <Modal
-        onDismiss={() => history.push("/pics")}
         // header={this.renderHeader()}
         content={this.renderContent()}
+        showModal={this.props.showModal}
       />
     );
   }

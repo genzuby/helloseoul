@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import InfinteScroll from "react-infinite-scroll-component";
 import { getSeoulImages } from "../actions";
 import ImageGalleryCard from "./ImageGalleryCard";
-
+import ImageGalleryShowImage from "./ImageGalleryShowImage";
 import "../css/main.scss";
 
 class ImageGallery extends Component {
-  state = { page: 1 };
+  state = { page: 1, showModal: "none" };
 
   componentDidMount() {
     this.props.getSeoulImages(this.state.page);
@@ -19,7 +19,7 @@ class ImageGallery extends Component {
     if (!picArry) return;
 
     return picArry.map((pic, idx) => {
-      return <ImageGalleryCard key={idx} info={pic} />;
+      return <ImageGalleryCard handler={this.handler} key={idx} info={pic} />;
     });
   };
 
@@ -29,17 +29,26 @@ class ImageGallery extends Component {
     this.props.getSeoulImages(pageno);
   };
 
+  handler = () => {
+    this.setState({
+      showModal: "block"
+    });
+  };
+
   render() {
     if (!this.props.pics) return <div />;
 
     return (
-      <InfinteScroll
-        dataLength={this.props.pics.length}
-        next={this.getMoreImages}
-        hasMore={true}
-      >
-        <div className="--image--gallery">{this.renderImg()}</div>
-      </InfinteScroll>
+      <div className=".--image--gallery--container ">
+        <InfinteScroll
+          dataLength={this.props.pics.length}
+          next={this.getMoreImages}
+          hasMore={true}
+        >
+          <div className="--image--gallery">{this.renderImg()}</div>
+        </InfinteScroll>
+        <ImageGalleryShowImage showModal={this.state.showModal} />
+      </div>
     );
   }
 }

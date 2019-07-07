@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { selectedPic } from "../actions";
 import "../css/main.scss";
@@ -24,10 +23,13 @@ class ImageGalleryCard extends React.Component {
             <li>Photographed by {info.user.name}</li>
             <li>{info.description}</li>
             <li>{info.alt_description}</li>
-            <li onClick={this.getPicInfo}>
-              <Link to="./imgmodal" className="--image--gallery--card--link">
-                See Orignal Image
-              </Link>
+            <li
+              onClick={() => {
+                this.getPicInfo();
+                this.props.handler();
+              }}
+            >
+              See Orignal Image
             </li>
           </ul>
         </div>
