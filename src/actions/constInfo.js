@@ -3,9 +3,12 @@ export const FETCH_MARKETS = "FETCH_MARKETS";
 export const FETCH_MARKETINFO = "FETCH_MARKETINFO";
 export const FETCH_WALKS = "FETCH_WALKS";
 export const FETCH_WALKINFO = "FETCH_WALKINFO";
+export const FETCH_EXPL = "FETCH_EXPL";
 export const FETCH_WIFIS = "FETCH_WIFIS";
 export const FETCH_PICS = "FETCH_PICS";
+export const SELECTED_PICINFO = "SELECTED_PICINFO";
 export const TRANS_AREANAME = [
+  { name: "CityHall", name_ko: "서울시청", lat: 37.566296, lng: 126.977943 },
   { name: "Gangnam-gu", name_ko: "강남구", lat: 37.517189, lng: 127.04129 },
   { name: "Geumcheon-gu", name_ko: "금천구", lat: 37.455813, lng: 126.8939 },
   { name: "Gangbuk-gu", name_ko: "강북구", lat: 37.63972, lng: 127.025688 },

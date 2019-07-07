@@ -26,17 +26,12 @@ class WalkInfoDetail extends Component {
       const addClass = title === "Homepage" ? "--item--homepage--link" : "";
       return (
         <div key={title}>
-          <p>
-            <div
-              className={`--item--desc--icon --item--desc--icon--${color} ${addclsName}`}
-            >
-              {title}
-            </div>
-            <div
-              className={addClass}
-              dangerouslySetInnerHTML={{ __html: value }}
-            />
-          </p>
+          <div
+            className={`--item--desc--icon --item--desc--icon--${color} ${addclsName}`}
+          >
+            {title}
+          </div>
+          <p className={addClass} dangerouslySetInnerHTML={{ __html: value }} />
         </div>
       );
     }
@@ -79,7 +74,9 @@ class WalkInfoDetail extends Component {
     return (
       <div className="--detailinfo--selected-container">
         <div className="--detailinfo--selected--desc">
-          <h3>{walkDetail.main.title}</h3>
+          <h3>
+            {walkDetail.main.title.replace(/\(/gi, "  ").replace(/\)/gi, "  ")}
+          </h3>
           {this.renderDesc("Address", walkDetail.main.addr1, "yellow")}
           {this.renderDesc(
             "Info Center",

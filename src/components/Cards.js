@@ -18,6 +18,7 @@ const cardInfo = [
   },
   {
     imgName: "EXPLORE",
+    url: "explore",
     imgUrl: "images/seoul-explore1.jpg",
     imgDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit saepe laborum ab placeat, "

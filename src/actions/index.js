@@ -12,7 +12,8 @@ import {
   tourWalkMain,
   tourWalkDesc1,
   tourWalkDesc2,
-  tourWalkPic
+  tourWalkPic,
+  TOUR_EXPL_LIST_URL
 } from "../api/koreaTourOpenApi";
 import {
   GEO_CURR_LOC,
@@ -20,8 +21,10 @@ import {
   FETCH_MARKETINFO,
   FETCH_WALKS,
   FETCH_WALKINFO,
+  FETCH_EXPL,
   FETCH_WIFIS,
   FETCH_PICS,
+  SELECTED_PICINFO,
   TRANS_AREANAME
 } from "./constInfo";
 
@@ -29,6 +32,13 @@ export const currentLocation = geoLocation => {
   return {
     type: GEO_CURR_LOC,
     payload: geoLocation
+  };
+};
+
+export const selectedPic = picinfo => {
+  return {
+    type: SELECTED_PICINFO,
+    payload: picinfo
   };
 };
 
@@ -120,12 +130,19 @@ export const fetchDetailWalkAll = id => async dispatch => {
   });
 };
 
+export const fetchExploreList = () => async dispatch => {
+  const response = await axios.get(TOUR_EXPL_LIST_URL);
+
+  dispatch({
+    type: FETCH_EXPL,
+    payload: response.data.response.body.items.item
+  });
+};
+
 export const getSeoulImages = page => async dispatch => {
   const response = await unsplashPicsApi.get("/search/photos/", {
     params: { query: "seoul", page, per_page: 30 }
   });
-
-  console.log(response);
 
   dispatch({
     type: FETCH_PICS,

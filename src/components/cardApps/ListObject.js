@@ -8,6 +8,19 @@ import WalkInfoDetail from "./WalkInfoDetail";
 import "../../css/detailInfo.scss";
 
 class ListObject extends Component {
+  constructor(props) {
+    super(props);
+
+    this.clickFoldList = this.clickFoldList.bind(this);
+  }
+
+  state = {
+    selectedId: null,
+    foldIcon: "fa-arrow-alt-circle-left",
+    foldClass: "--detail--content--even",
+    chkItemClass: ""
+  };
+
   componentDidMount() {
     this.props.currentLocation({ lat: 37.566296, lng: 126.977943 });
   }
@@ -27,6 +40,10 @@ class ListObject extends Component {
           onClick={() => {
             this.props.listClick(data.contentid);
             window.scrollTo(0, 0);
+            this.setState({
+              selectedId: data.contentid,
+              chkItemClass: "--detail--item--selected"
+            });
           }}
         >
           <img alt={data.title} src={imgurl} />
@@ -73,25 +90,54 @@ class ListObject extends Component {
               className="--detail--content--info"
             />
           );
+        case "EXPLORE":
+          return (
+            <WalkInfoDetail
+              selectContentId={this.props.selectedItem}
+              className="--detail--content--info"
+            />
+          );
         default:
           return null;
       }
     }
   };
 
+  clickFoldList() {
+    if (this.state.foldIcon === "fa-arrow-alt-circle-right") {
+      this.setState({
+        foldIcon: "fa-arrow-alt-circle-left",
+        foldClass: "--detail--content--even"
+      });
+    } else {
+      this.setState({
+        foldIcon: "fa-arrow-alt-circle-right",
+        foldClass: "--detail--content--even--fold"
+      });
+    }
+  }
+
   render() {
     return (
       <div className="--detailinfo--container">
         <div className="--detallinfo--nav">
-          <Link to="/">Go Home</Link>
+          <Link to="/">
+            <i className="fas fa-suitcase-rolling go--home--icon" />
+          </Link>
         </div>
         <div className="--detailinfo--body">
+          <span
+            onClick={this.clickFoldList}
+            className="--detail--content--fold"
+          >
+            <i className={`far ${this.state.foldIcon}`} />
+          </span>
           <div className="--detailinfo--header">
             <h1 className="--detailinfo--title">{this.props.listTitle}</h1>
             <p className="--detailinfo--desc">{this.props.listDesc}</p>
           </div>
-          <div className="--detail--content--even">
-            <ul className="--detail-content--list">
+          <div className={this.state.foldClass}>
+            <ul className="--detail--content--list">
               {this.renderObjectList()}
             </ul>
             {this.renderDetail()}

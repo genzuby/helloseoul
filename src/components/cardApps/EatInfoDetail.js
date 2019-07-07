@@ -25,15 +25,12 @@ class EatInfoDetail extends Component {
     if (value) {
       const addClass = title === "Homepage" ? "--item--homepage--link" : "";
       return (
-        <p>
+        <div key={title}>
           <div className={`--item--desc--icon --item--desc--icon--${color}`}>
             {title}
           </div>
-          <div
-            className={addClass}
-            dangerouslySetInnerHTML={{ __html: value }}
-          />
-        </p>
+          <p className={addClass} dangerouslySetInnerHTML={{ __html: value }} />
+        </div>
       );
     }
   };
@@ -63,7 +60,11 @@ class EatInfoDetail extends Component {
     return (
       <div className="--detailinfo--selected-container">
         <div className="--detailinfo--selected--desc">
-          <h3>{marketDetail.main.title}</h3>
+          <h3>
+            {marketDetail.main.title
+              .replace(/\(/gi, "  ")
+              .replace(/\)/gi, "  ")}
+          </h3>
           {this.renderDesc("Sales Items", marketDetail.desc.saleitem, "pink")}
           {this.renderDesc("Address", marketDetail.main.addr1, "yellow")}
           {this.renderDesc(
