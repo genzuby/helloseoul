@@ -1,7 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { selectedPic } from "../actions";
 import "../css/main.scss";
 
 class ImageGalleryCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.getPicInfo = this.getPicInfo.bind(this);
+  }
+
+  getPicInfo() {
+    if (!this.props) return;
+    this.props.selectedPic(this.props.info);
+  }
   render() {
     const info = this.props.info;
     return (
@@ -12,6 +24,11 @@ class ImageGalleryCard extends React.Component {
             <li>Photographed by {info.user.name}</li>
             <li>{info.description}</li>
             <li>{info.alt_description}</li>
+            <li onClick={this.getPicInfo}>
+              <Link to="./imgmodal" className="--image--gallery--card--link">
+                See Orignal Image
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -19,4 +36,7 @@ class ImageGalleryCard extends React.Component {
   }
 }
 
-export default ImageGalleryCard;
+export default connect(
+  null,
+  { selectedPic }
+)(ImageGalleryCard);

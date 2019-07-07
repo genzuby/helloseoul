@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import InfinteScroll from "react-infinite-scroll-component";
 import { getSeoulImages } from "../actions";
 import ImageGalleryCard from "./ImageGalleryCard";
+
 import "../css/main.scss";
 
 class ImageGallery extends Component {
@@ -17,8 +18,8 @@ class ImageGallery extends Component {
     const picArry = this.props.pics;
     if (!picArry) return;
 
-    return picArry.map(pic => {
-      return <ImageGalleryCard key={pic.id} info={pic} />;
+    return picArry.map((pic, idx) => {
+      return <ImageGalleryCard key={idx} info={pic} />;
     });
   };
 
@@ -36,7 +37,6 @@ class ImageGallery extends Component {
         dataLength={this.props.pics.length}
         next={this.getMoreImages}
         hasMore={true}
-        // loader={<div>Loading..</div>}
       >
         <div className="--image--gallery">{this.renderImg()}</div>
       </InfinteScroll>
