@@ -2,19 +2,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This App is made for people who would visit Seoul.
 
 ## Libraries
-react
-redux
-redux-thunk
-es6
-axios
-lodash
-sass(scss)
-google-map-react
-react-infinite-scroll-component
+react<br>
+redux<br>
+redux-thunk<br>
+es6<br>
+axios<br>
+lodash<br>
+sass(scss)<br>
+google-map-react<br>
+react-infinite-scroll-component<br>
 
 ## Data from
-Korea Tour Open API
-unsplash Open API
+Korea Tour Open API<br>
+unsplash Open API<br>
 
 ## Available Scripts
 
