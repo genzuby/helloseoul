@@ -1,4 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
+
+This App is made for people who would visit Seoul.
+
+## Libraries
+react<br>
+redux<br>
+redux-thunk<br>
+es6<br>
+axios<br>
+lodash<br>
+sass(scss)<br>
+google-map-react<br>
+react-infinite-scroll-component<br>
+
+## Data from
+Korea Tour Open API<br>
+unsplash Open API<br>
 
 ## Available Scripts
 
