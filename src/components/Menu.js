@@ -29,9 +29,9 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="--mainmenu--nav">
-        <span className="--nav--gohome" title="Go Home">
+        <span className="--nav--gohome">
           <Link to="/">
-            <i className="fas fa-plane" />
+            <i className="fas fa-plane" title="Go Home" />
           </Link>
         </span>
         <ul className="--nav--menulist">{this.renderMenu()}</ul>
