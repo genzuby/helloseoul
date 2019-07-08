@@ -15,6 +15,7 @@ class Menu extends React.Component {
       return (
         <li
           key={param.name}
+          onClick={() => window.scrollTo(0, 0)}
           className={
             param.name === this.props.selected ? "--selected--menu" : ""
           }
