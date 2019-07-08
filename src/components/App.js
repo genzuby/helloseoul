@@ -7,6 +7,7 @@ import EatInfo from "./cardApps/EatInfo";
 import ExploreInfo from "./cardApps/ExploreInfo";
 import ImageGallery from "./ImageGallery";
 import ImageGalleryShowImage from "./ImageGalleryShowImage";
+import Container from "./Container";
 import history from "../history";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <div>
           <Route path="/" exact component={Home} />
           <Route path="/pics" exact component={ImageGallery} />
+          <Route path="/menupics" exact component={Container} />
           <Route path="/markets" exact component={EatInfo} />
           <Route path="/walks" exact component={WalkInfo} />
           <Route path="/explore" exact component={ExploreInfo} />

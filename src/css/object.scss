@@ -1,0 +1,19 @@
+.--go--to--top {
+  position: fixed;
+  bottom: 2.2em;
+  right: 2.5em;
+  width: 2.5em;
+  height: 2.5em;
+  z-index: 99;
+  background-color: var(--point--pink);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 3px 6px 0 rgba(0, 0, 0, 0.5);
+  i {
+    color: white;
+    font-size: 1.3rem;
+  }
+}

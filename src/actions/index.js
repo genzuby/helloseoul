@@ -141,7 +141,8 @@ export const fetchExploreList = () => async dispatch => {
 
 export const getSeoulImages = page => async dispatch => {
   const response = await unsplashPicsApi.get("/search/photos/", {
-    params: { query: "seoul", page, per_page: 30 }
+    // params: { query: "seoul", page, per_page: 30 }
+    params: { query: "seoul", page }
   });
 
   dispatch({

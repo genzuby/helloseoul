@@ -2,6 +2,7 @@ import React from "react";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
 import { connect } from "react-redux";
 import { currentLocation } from "../../actions";
+import "../../css/loader.scss";
 
 export class MapContainer extends React.Component {
   state = {
@@ -107,7 +108,8 @@ export class MapContainer extends React.Component {
     const userLocation = this.props.currloc;
 
     if (loading) {
-      return null;
+      // return null;
+      return <div className="--loader" />;
     }
 
     return (

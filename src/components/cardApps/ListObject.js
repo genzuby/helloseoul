@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { currentLocation } from "../../actions";
-import { Link } from "react-router-dom";
+import Menu from "../Menu";
 import MapContainer from "./MapContainer";
 import EatInfoDetail from "./EatInfoDetail";
 import WalkInfoDetail from "./WalkInfoDetail";
+import GotoTop from "./GotoTop";
 import "../../css/detailInfo.scss";
 
 class ListObject extends Component {
@@ -17,8 +18,7 @@ class ListObject extends Component {
   state = {
     selectedId: null,
     foldIcon: "fa-arrow-alt-circle-left",
-    foldClass: "--detail--content--even",
-    chkItemClass: ""
+    foldClass: "--detail--content--even"
   };
 
   componentDidMount() {
@@ -41,10 +41,15 @@ class ListObject extends Component {
             this.props.listClick(data.contentid);
             window.scrollTo(0, 0);
             this.setState({
-              selectedId: data.contentid,
-              chkItemClass: "--detail--item--selected"
+              selectedId: data.contentid
             });
+            console.log(this.state.selectedId);
           }}
+          className={
+            data.contentid === this.state.selectedId
+              ? "--detail--item--selected"
+              : ""
+          }
         >
           <img alt={data.title} src={imgurl} />
           <h3 title={data.title}>{data.title}</h3>
@@ -120,11 +125,7 @@ class ListObject extends Component {
   render() {
     return (
       <div className="--detailinfo--container">
-        <div className="--detallinfo--nav">
-          <Link to="/">
-            <i className="fas fa-suitcase-rolling go--home--icon" />
-          </Link>
-        </div>
+        <Menu selected={this.props.itemName} />
         <div className="--detailinfo--body">
           <span
             onClick={this.clickFoldList}
@@ -142,6 +143,7 @@ class ListObject extends Component {
             </ul>
             {this.renderDetail()}
           </div>
+          <GotoTop />
         </div>
       </div>
     );

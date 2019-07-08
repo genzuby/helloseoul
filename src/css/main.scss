@@ -11,8 +11,11 @@ $desktop: 660px;
   --point--yellow: #f88f07;
   --point--blue: #0f82ff;
   --point--green: #0fff23;
+  --point--dark--green: #005f08;
   --point--pink: #de5b6d;
+  --point--red: #860214;
   --point--gray: #585858;
+  --light--yellow: #f3ef82;
   --bg--dark--color: #262626;
   --bg--gray--color: #888888;
 }
@@ -99,7 +102,6 @@ body {
     100% {
       top: 28%;
       font-size: 1.1rem;
-      // color: var(--point--green);
     }
   }
 
@@ -152,6 +154,50 @@ body {
     100% {
       width: 20%;
       filter: brightness(100%);
+    }
+  }
+}
+
+.--mainmenu--nav {
+  width: 100%;
+  height: 3.2em;
+  border-bottom: 1px solid rgb(201, 199, 199);
+  display: grid;
+  grid-template-areas: 1fr / auto;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 9;
+
+  .--nav--gohome {
+    grid-column: 1;
+    padding: 0.8em 1.5em;
+    i {
+      font-size: 1.55rem;
+      color: var(--point--gray);
+
+      &:hover {
+        color: var(--point--pink);
+      }
+    }
+  }
+  .--nav--menulist {
+    grid-column: 2;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1em;
+
+    .--selected--menu {
+      color: var(--point--dark--green);
+      border-bottom: 3px solid var(--point--dark--green);
+    }
+    li {
+      padding: 0.5em;
+      margin: 0 1em;
+      font-size: 0.9rem;
+      &:hover {
+        border-bottom: 3px solid var(--point--dark--green);
+      }
     }
   }
 }

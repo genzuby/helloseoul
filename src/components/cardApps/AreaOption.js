@@ -17,7 +17,7 @@ class AreaOption extends React.Component {
           key={area.name}
           onClick={() => this.setPropsLoc({ lat: area.lat, lng: area.lng })}
         >
-          {area.name.replace("-gu", "")}
+          {area.name.replace("-", "")}
         </button>
       );
     });

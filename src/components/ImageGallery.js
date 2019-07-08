@@ -4,6 +4,7 @@ import InfinteScroll from "react-infinite-scroll-component";
 import { getSeoulImages } from "../actions";
 import ImageGalleryCard from "./ImageGalleryCard";
 import ImageGalleryShowImage from "./ImageGalleryShowImage";
+import GotoTop from "./cardApps/GotoTop";
 import "../css/main.scss";
 
 class ImageGallery extends Component {
@@ -63,6 +64,7 @@ class ImageGallery extends Component {
           showModal={this.state.showModal}
           closeModal={this.closeModal}
         />
+        <GotoTop />
       </div>
     );
   }

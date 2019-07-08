@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 // import { fetchWifiAll } from "../../actions";
 import { fetchWifiListsStatic } from "../../actions";
 import MapContainer from "./MapContainer";
-import { Link } from "react-router-dom";
+import Menu from "../Menu";
 import AreaOption from "./AreaOption";
 import "../../css/detailInfo.scss";
 
@@ -12,7 +12,6 @@ class WifiInfo extends React.Component {
   componentDidMount() {
     // this.props.fetchWifiAll();
     this.props.fetchWifiListsStatic();
-    console.log(this.props.wifis);
   }
 
   makeSoptArray = () => {
@@ -26,9 +25,7 @@ class WifiInfo extends React.Component {
   render() {
     return (
       <div className="--detailinfo--container">
-        <div className="--detallinfo--nav">
-          <Link to="/">Go Home</Link>
-        </div>
+        <Menu selected="FREEWIFIS" />
         <div className="--detailinfo--body">
           <div className="--detailinfo--header">
             <h1 className="--detailinfo--title">Public Free Wifi Spots</h1>
