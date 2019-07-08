@@ -43,7 +43,6 @@ class ListObject extends Component {
             this.setState({
               selectedId: data.contentid
             });
-            console.log(this.state.selectedId);
           }}
           className={
             data.contentid === this.state.selectedId
