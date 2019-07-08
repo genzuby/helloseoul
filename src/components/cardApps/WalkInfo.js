@@ -30,10 +30,8 @@ class WalkInfo extends React.Component {
           listClick={this.getDetailInfo}
           selectedItem={this.state.selectedId}
           listTitle="Walk in Seoul"
-          listDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
-              tempora reprehenderit voluptas deserunt alias reiciendis, omnis
-              soluta dolorem, odio corporis sapiente numquam nihil deleniti cum
-              quas! Optio at laboriosam fugiat."
+          listDesc="In Seoul, There are a lot of big and small mountains and streams. Of course huge Han river as well.
+           You can enjoy not only a city life but also lovely nature here. "
         />
       </React.Fragment>
     );

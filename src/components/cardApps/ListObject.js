@@ -135,6 +135,10 @@ class ListObject extends Component {
           <div className="--detailinfo--header">
             <h1 className="--detailinfo--title">{this.props.listTitle}</h1>
             <p className="--detailinfo--desc">{this.props.listDesc}</p>
+            <p className="--detailinfo--desc--small">
+              When you click a card on the left hand side, you can see the
+              detail information of that like location, opening hour and so on.
+            </p>
           </div>
           <div className={this.state.foldClass}>
             <ul className="--detail--content--list">

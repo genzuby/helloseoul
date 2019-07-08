@@ -7,28 +7,28 @@ const cardInfo = [
     imgUrl: "images/seoul-eat1.jpg",
     url: "markets",
     imgDesc:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit saepe laborum ab placeat."
+      "Look up traditional markets in Seoul. You can try local foods and get some exotic souvenirs."
   },
   {
     imgName: "WALK",
     imgUrl: "images/seoul-walk1.jpg",
     url: "walks",
     imgDesc:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit saepe laborum ab placeat."
+      "How about walk around beautiful nature in Seoul? Here is the list for you!"
   },
   {
     imgName: "EXPLORE",
     url: "explore",
     imgUrl: "images/seoul-explore1.jpg",
     imgDesc:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit saepe laborum ab placeat, "
+      "Seoul has been a capital of Korea from 623 years ago. You can have various experience at those places."
   },
   {
     imgName: "FREEWIFI",
     url: "wifis",
     imgUrl: "images/seoul-wifi1.jpg",
     imgDesc:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit saepe laborum ab placeat, consequatur "
+      "Just so you know, you don't have to buy a sim card in Seoul. Why? Beacuse of a tons of free wifi spots.;)"
   }
 ];
 const Cards = () => {

@@ -30,10 +30,9 @@ class ExploreInfo extends React.Component {
           listClick={this.getDetailInfo}
           selectedItem={this.state.selectedId}
           listTitle="Explore Seoul"
-          listDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
-              tempora reprehenderit voluptas deserunt alias reiciendis, omnis
-              soluta dolorem, odio corporis sapiente numquam nihil deleniti cum
-              quas! Optio at laboriosam fugiat."
+          listDesc="Seoul as a capital of Korea has many historical places. That is beacuse since Seoul became a capital in 1394, 
+          it has been passed over 600 years.
+          You can see and feel about the glorious and sad history in Korea."
         />
       </React.Fragment>
     );

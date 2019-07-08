@@ -33,10 +33,8 @@ class EatInfo extends React.Component {
           listClick={this.getDetailInfo}
           selectedItem={this.state.selectedId}
           listTitle="Traditional Markets : EAT, BUY & FUN"
-          listDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
-              tempora reprehenderit voluptas deserunt alias reiciendis, omnis
-              soluta dolorem, odio corporis sapiente numquam nihil deleniti cum
-              quas! Optio at laboriosam fugiat."
+          listDesc="There are a lot of traditional markets in Seoul. Here is the delicate list from Korea Tour Organization.
+          You can eat, buy and try many other things."
         />
       </React.Fragment>
     );

@@ -22,8 +22,13 @@
   }
 
   .--detailinfo--desc {
-    font-size: 0.95rem;
-    width: 75%;
+    font-size: 1rem;
+    width: 90%;
+  }
+
+  .--detailinfo--desc--small {
+    font-size: 0.9rem;
+    color: var(--point--gray);
   }
 }
 
