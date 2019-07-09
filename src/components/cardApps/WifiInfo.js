@@ -30,14 +30,14 @@ class WifiInfo extends React.Component {
           <div className="--detailinfo--header">
             <h1 className="--detailinfo--title">Public Free Wifi Spots</h1>
             <p className="--detailinfo--desc">
-              Here is the map of about 4800 free public wifi spots in Seoul.
-              This data is provided by the government of Seoul and the last
-              released date is in April, 2018.
+              Here is a map of about 4,800 free public wifi spots in Seoul. This
+              data is provided by the government of Seoul, and was last updated
+              in April, 2018.
             </p>
             <p className="--detailinfo--desc--small">
               When this map is first loaded, the center of it will be your
-              current location. Then you click a button on the right hand side,
-              the map will be relocated in the center of the area.
+              current location. When you click a button on the right hand side,
+              the map will be relocated in the center of that area.
             </p>
           </div>
           <div className="--detail--content">

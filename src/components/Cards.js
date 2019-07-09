@@ -14,21 +14,21 @@ const cardInfo = [
     imgUrl: "images/seoul-walk1.jpg",
     url: "walks",
     imgDesc:
-      "How about walk around beautiful nature in Seoul? Here is the list for you!"
+      "How about a walk around the beautiful nature in Seoul? Here is a list for you!"
   },
   {
     imgName: "EXPLORE",
     url: "explore",
     imgUrl: "images/seoul-explore1.jpg",
     imgDesc:
-      "Seoul has been a capital of Korea from 623 years ago. You can have various experience at those places."
+      "Seoul has been the capital of Korea for 623 years. You can have various experiences at these places."
   },
   {
     imgName: "FREEWIFI",
     url: "wifis",
     imgUrl: "images/seoul-wifi1.jpg",
     imgDesc:
-      "Just so you know, you don't have to buy a sim card in Seoul. Why? Beacuse of a tons of free wifi spots.;)"
+      "You don't have to buy a SIM card in Seoul! Why? Because there are tons of free wifi spots!"
   }
 ];
 const Cards = () => {
