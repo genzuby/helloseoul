@@ -1,5 +1,5 @@
 $mobile: 500px;
-$pad: 1025px;
+$pad: 960px;
 
 @mixin respondScreen($media) {
   @if $media == mobile {
@@ -23,12 +23,14 @@ $pad: 1025px;
 
   @include respondScreen(pad) {
     grid: repeat(2, 1fr) / repeat(2, 220px);
+    margin: 0 auto;
+    padding: 2em 0;
   }
 
   @include respondScreen(mobile) {
     grid: repeat(4, 70px) / 200px;
-    margin: 2em auto;
-
+    margin: 0 auto;
+    padding: 2em 0;
     grid-gap: 0.5em;
   }
 
