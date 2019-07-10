@@ -82,6 +82,10 @@ body {
   animation-fill-mode: both;
   animation-delay: 6s;
 
+  @include respondScreen(pad) {
+    animation-name: textanimation-pad;
+  }
+
   @keyframes textanimation {
     0% {
       top: 0%;
@@ -92,11 +96,26 @@ body {
       font-size: calc(1.6rem + 2vw);
     }
   }
+
+  @keyframes textanimation-pad {
+    0% {
+      top: 0%;
+      font-size: 0;
+    }
+    100% {
+      top: 12%;
+      font-size: calc(1.6rem + 2vw);
+    }
+  }
 }
 
 .--greeting--pics--link {
   animation-name: linkanimation;
   cursor: pointer;
+
+  @include respondScreen(pad) {
+    animation-name: linkanimation-pad;
+  }
 
   @keyframes linkanimation {
     0% {
@@ -105,6 +124,17 @@ body {
     }
     100% {
       top: 28%;
+      font-size: calc(0.7rem + 0.4vw);
+    }
+  }
+
+  @keyframes linkanimation-pad {
+    0% {
+      top: 0%;
+      font-size: 0;
+    }
+    100% {
+      top: 22%;
       font-size: calc(0.8rem + 0.3vw);
     }
   }
@@ -128,6 +158,8 @@ body {
   @include respondScreen(pad) {
     display: grid;
     grid: 1fr 1fr / repeat(3, auto);
+    animation: none;
+    height: 40%;
   }
 
   @keyframes bigimage {
