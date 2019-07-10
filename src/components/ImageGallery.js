@@ -5,7 +5,7 @@ import { getSeoulImages } from "../actions";
 import ImageGalleryCard from "./ImageGalleryCard";
 import ImageGalleryShowImage from "./ImageGalleryShowImage";
 import GotoTop from "./cardApps/GotoTop";
-import "../css/main.scss";
+import "../css/object.scss";
 
 class ImageGallery extends Component {
   state = { page: 1, showModal: false };

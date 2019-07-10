@@ -17,3 +17,127 @@
     font-size: 1.3rem;
   }
 }
+
+.--image--gallery--container {
+  position: relative;
+}
+
+.--modal--container {
+  overflow: hidden;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 0 40%;
+
+  span {
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--point--pink);
+    }
+  }
+
+  .--modal--body {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    background: #000;
+    height: 100vh;
+    color: #fff;
+
+    .--modal--header {
+      font-size: 0.9rem;
+      font-weight: 100;
+    }
+    .--modal--content {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.--image--gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  grid-auto-flow: dense;
+  grid-gap: 3px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background: var(--bg--dark--color);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .--image--gallery--card {
+    position: relative;
+
+    @for $i from 1 through 500 {
+      &:nth-child(#{$i}) {
+        $random-size-row: random(2);
+        $random-size-col: random(2);
+        grid-row: span $random-size-row;
+        grid-column: span $random-size-col;
+      }
+    }
+
+    &:hover {
+      .--image--gallery--desc {
+        height: 100%;
+        display: block;
+      }
+    }
+    .--image--gallery--desc {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 0.8rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      display: none;
+      padding: 2em;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        li:nth-of-type(1) {
+          padding-bottom: 1.5em;
+        }
+        li:nth-of-type(4) {
+          padding: 1em 0;
+          color: #fff;
+          cursor: pointer;
+          &:hover {
+            color: var(--point--blue);
+          }
+        }
+      }
+    }
+  }
+}

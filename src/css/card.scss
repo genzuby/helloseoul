@@ -1,9 +1,33 @@
+$mobile: 500px;
+$pad: 1025px;
+
+@mixin respondScreen($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: $mobile) {
+      @content;
+    }
+  } @else if $media == pad {
+    @media only screen and (min-width: $mobile + 1) and (max-width: $pad - 1) {
+      @content;
+    }
+  }
+}
+
 .Cards {
   display: grid;
   grid: auto / repeat(auto-fit, 220px);
   grid-gap: 1em;
   margin: 3em auto;
   justify-content: center;
+
+  @include respondScreen(pad) {
+    grid: repeat(2, 1fr) / repeat(2, 220px);
+  }
+
+  @include respondScreen(mobile) {
+    grid: repeat(4, 70px) / 200px;
+    grid-gap: 0.5em;
+  }
 
   .--card--design {
     background: #fff;
@@ -17,27 +41,112 @@
     cursor: pointer;
     padding: 0.5em;
 
+    @include respondScreen(pad) {
+      display: grid;
+      grid: auto / 1fr auto auto;
+      width: 200px;
+      height: 140px;
+      padding: 0em;
+
+      &:hover {
+        grid: 3em auto / 0% auto;
+        h3 {
+          writing-mode: horizontal-tb;
+          grid-row: 1;
+          grid-column: 2;
+          padding-left: 1em;
+        }
+
+        .--card--desc {
+          width: 100%;
+          grid-row: 2;
+          grid-column: 2;
+          padding-left: 1em;
+        }
+      }
+    }
+
+    @include respondScreen(mobile) {
+      display: grid;
+      grid: 70px / 70px 120px;
+      width: 200px;
+      height: 70px;
+      box-shadow: none;
+      padding: 0;
+      background: none;
+      position: relative;
+
+      &:hover {
+        .--card--desc {
+          display: block;
+          position: absolute;
+          width: 186px;
+          height: 90px !important;
+          padding: 1em;
+          top: -25px;
+          left: 60px;
+          z-index: 3;
+        }
+        h3 {
+          display: none;
+        }
+      }
+    }
+
     &:hover {
       .--card--desc {
         height: 50%;
-        font-size: 0.8rem;
+        font-size: calc(0.7rem + 0.1vw);
       }
     }
 
     .--card--bgimage {
       background-size: cover;
       height: 280px;
+      @include respondScreen(pad) {
+        height: 140px;
+        grid-column: 1;
+
+        background-position: center center;
+      }
+
+      @include respondScreen(mobile) {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        grid-column: 1;
+        grid-row: 1;
+      }
     }
 
     h3 {
       padding: 0;
-      font-size: 1.2rem;
+      font-size: calc(0.9rem + 0.3vw);
+      transition: 0.2s ease-in-out;
+
+      @include respondScreen(pad) {
+        padding-top: 0.5em;
+        grid-column: 2;
+        writing-mode: vertical-rl;
+      }
+
+      @include respondScreen(mobile) {
+        grid-column: 2;
+        grid-row: 1;
+      }
     }
     .--card--desc {
       font-weight: 100;
       font-size: 0;
       padding: 0 0.5em;
       transition: 0.2s ease-in-out;
+      @include respondScreen(pad) {
+        grid-column: 3;
+      }
+      @include respondScreen(mobile) {
+        display: none;
+        position: absolute;
+      }
     }
   }
 }

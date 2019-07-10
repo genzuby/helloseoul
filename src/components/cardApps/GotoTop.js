@@ -8,7 +8,7 @@ const GotoTop = () => {
       className="--go--to--top"
       title=" Go to Top"
     >
-      <i class="fas fa-arrow-up" />
+      <i className="fas fa-arrow-up" />
     </div>
   );
 };

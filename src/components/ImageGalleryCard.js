@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { selectedPic } from "../actions";
-import "../css/main.scss";
 
 class ImageGalleryCard extends React.Component {
   constructor(props) {
