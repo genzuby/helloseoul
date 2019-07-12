@@ -1,3 +1,10 @@
+$desktopwifi: 990px;
+
+@mixin wifiResponse {
+  @media (max-width: $desktopwifi) {
+    @content;
+  }
+}
 .--detailinfo--container {
   width: 100vw;
   position: relative;
@@ -42,11 +49,24 @@
     height: 70vh;
     position: relative !important;
     grid-column: 1;
+    @include wifiResponse {
+      width: 93%;
+      grid-row: 1;
+    }
   }
   .--detail-content--opt {
     width: 100%;
-    height: 70vh;
     grid-column: 2;
+    @include wifiResponse {
+      width: 96%;
+      padding-top: 1em;
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+
+  @include wifiResponse {
+    grid: 2.5fr auto / auto;
   }
 }
 

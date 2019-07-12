@@ -63,6 +63,12 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="--mainmenu--nav">
+        <span className="--nav--gohome">
+          <Link to="/">
+            <i className="fas fa-plane" title="Go Home" />
+          </Link>
+        </span>
+        <ul className="--nav--menulist">{this.renderMenu()}</ul>
         <span className="--nav--all">
           <i
             className="fas fa-bars"
@@ -76,12 +82,6 @@ class Menu extends React.Component {
             {this.renderMenuMobile()} {this.renderMenu()}
           </ul>
         </span>
-        <span className="--nav--gohome">
-          <Link to="/">
-            <i className="fas fa-plane" title="Go Home" />
-          </Link>
-        </span>
-        <ul className="--nav--menulist">{this.renderMenu()}</ul>
       </div>
     );
   }
