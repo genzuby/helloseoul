@@ -28,10 +28,10 @@ $pad: 960px;
   }
 
   @include respondScreen(mobile) {
-    grid: repeat(4, 70px) / 200px;
+    grid: repeat(4, 70px) / 260px;
     margin: 0 auto;
     padding: 2em 0;
-    grid-gap: 0.5em;
+    grid-gap: 1em;
   }
 
   .--card--design {
@@ -53,7 +53,9 @@ $pad: 960px;
       height: 140px;
       padding: 0em;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         grid: 3em auto / 0% auto;
         h3 {
           writing-mode: horizontal-tb;
@@ -73,22 +75,27 @@ $pad: 960px;
 
     @include respondScreen(mobile) {
       display: grid;
-      grid: 70px / 70px 120px;
-      width: 200px;
+      grid: auto / 70px 190px;
+      width: 260px;
       height: 70px;
       box-shadow: none;
-      padding: 0;
-      background: none;
+      padding: 0.5em 2em 0 2em;
+      border-radius: 2px 2px 2px 30%;
+      // background: none;
+      justify-content: center;
       position: relative;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         .--card--desc {
           display: block;
           position: absolute;
-          width: 186px;
+          width: 196px;
           height: 90px !important;
           padding: 1em;
-          top: -25px;
+          margin: auto 0;
+          top: 0;
           left: 60px;
           z-index: 3;
         }
@@ -116,8 +123,9 @@ $pad: 960px;
       }
 
       @include respondScreen(mobile) {
-        height: 50px;
-        width: 50px;
+        height: 70px;
+        width: 70px;
+        border: 6px solid #fff;
         border-radius: 50%;
         grid-column: 1;
         grid-row: 1;
@@ -138,6 +146,7 @@ $pad: 960px;
       @include respondScreen(mobile) {
         grid-column: 2;
         grid-row: 1;
+        padding: 0.5em;
       }
     }
     .--card--desc {

@@ -18,16 +18,17 @@
 .--detailinfo--header {
   margin: 1em 1em 2em 1em;
   .--detailinfo--title {
-    font-size: 1.6rem;
+    font-size: calc(1rem + 0.6vw);
   }
 
   .--detailinfo--desc {
-    font-size: 1rem;
+    font-size: calc(0.8rem + 0.2vw);
     width: 90%;
   }
 
   .--detailinfo--desc--small {
-    font-size: 0.85rem;
+    width: 90%;
+    font-size: calc(0.75rem + 0.1vw);
     color: var(--point--gray);
   }
 }
@@ -105,8 +106,6 @@
     width: 100%;
     grid-column: 1;
     margin: 0;
-    // height: 85vh;
-    // overflow-y: scroll;
     display: grid;
     grid-template-columns: repeat(auto-fit, 16em);
     justify-content: center;

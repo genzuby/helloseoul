@@ -11,14 +11,24 @@
   --light--yellow: #f3ef82;
   --bg--dark--color: #262626;
   --bg--gray--color: #888888;
+  --bg--gray--light: rgb(201, 199, 199);
 }
 
 $desktop: 830px;
+$mobile: 500px;
 $maxheight: 400px;
 
 @mixin respondScreen($media) {
   @if $media == pad {
     @media only screen and (max-width: $desktop - 1) {
+      @content;
+    }
+  } @else if $media == mobile {
+    @media only screen and (max-width: $mobile - 1) {
+      @content;
+    }
+  } @else if $media == padmobile {
+    @media only screen and (min-width: $mobile) and (max-width: $desktop - 1) {
       @content;
     }
   } @else if $media == height {
@@ -234,7 +244,7 @@ html {
 .--mainmenu--nav {
   width: 100%;
   height: 3.2em;
-  border-bottom: 1px solid rgb(201, 199, 199);
+  border-bottom: 1px solid var(--bg--gray--light);
   display: grid;
   grid-template-areas: 1fr / auto;
   position: sticky;
@@ -242,9 +252,12 @@ html {
   background: #fff;
   z-index: 9;
 
+  .--nav--all,
   .--nav--gohome {
     grid-column: 1;
-    padding: 0.8em 1.5em;
+
+    cursor: pointer;
+
     i {
       font-size: 1.55rem;
       color: var(--point--gray);
@@ -254,22 +267,129 @@ html {
       }
     }
   }
+
+  .--nav--all {
+    padding: 0.8em 1.5em;
+    display: none;
+    @include respondScreen(pad) {
+      display: block;
+      position: relative;
+    }
+  }
+  .--nav--gohome {
+    padding: 0.8em 1.5em;
+    display: block;
+    @include respondScreen(pad) {
+      display: none;
+    }
+  }
+
+  .--nav--menulist,
+  .--nav--menulist-ver {
+    display: flex;
+    background: #fff;
+  }
+
   .--nav--menulist {
     grid-column: 2;
-    display: flex;
     justify-content: flex-end;
     padding-right: 1em;
+
+    @include respondScreen(pad) {
+      display: none;
+    }
 
     .--selected--menu {
       color: var(--point--dark--green);
       border-bottom: 3px solid var(--point--dark--green);
     }
+
     li {
       padding: 0.5em;
       margin: 0 1em;
       font-size: 0.9rem;
       &:hover {
         border-bottom: 3px solid var(--point--dark--green);
+      }
+    }
+  }
+
+  .--nav--menulist-ver {
+    justify-content: flex-start;
+    display: none;
+    flex-direction: column;
+    border: 1px solid var(--bg--gray--light);
+    width: 160px;
+    padding: 0.5em 1em;
+    margin: 0.75em 0;
+    transition: 0.3s ease-in;
+
+    @include respondScreen(padmobile) {
+      .--nav--menu--close {
+        display: none;
+      }
+      .--selected--menu {
+        border-left: 6px solid var(--point--dark--green);
+      }
+
+      li {
+        padding: 0.5em;
+        margin: 0.2em;
+        width: 90%;
+        font-size: 0.9rem;
+        border-left: 6px solid #fff;
+        &:hover {
+          border-left: 6px solid var(--point--dark--green);
+        }
+      }
+    }
+
+    @include respondScreen(mobile) {
+      position: fixed;
+      z-index: 5;
+      background: #fff;
+      flex-direction: column;
+      border: none;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: hidden;
+      padding: 8em 3em 3em;
+      margin: 0;
+      transition: 0.3s ease-in;
+
+      .--nav--menu--close {
+        position: absolute;
+        top: 5%;
+        left: 80%;
+        cursor: pointer;
+
+        i {
+          font-size: 2rem;
+        }
+      }
+
+      .--nav--menu--go--home {
+        position: absolute;
+        top: 5%;
+        left: 15%;
+        margin: 1em 0;
+      }
+
+      .--selected--menu {
+        a {
+          color: var(--point--dark--green);
+        }
+      }
+
+      li {
+        padding: 1em;
+        width: 90%;
+        font-size: 1.2rem;
+        border-bottom: 1px dashed var(--bg--gray--light);
       }
     }
   }

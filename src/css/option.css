@@ -1,0 +1,45 @@
+.--option--button {
+  height: 3em;
+  padding: 0.5em 0;
+  margin: 0.1em;
+  background: var(--bg--dark--color);
+  font-size: 0.88rem;
+  color: var(--bg--gray--color);
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+.--option--button::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0.75em;
+  left: 0.5em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--bg--gray--color);
+}
+
+.--option--button:focus {
+  color: var(--point--green);
+  text-shadow: 0 0 2px var(--point--green);
+}
+
+.--option--button:focus::before {
+  background: var(--point--green);
+  -webkit-box-shadow: 0 0 2px var(--point--green);
+          box-shadow: 0 0 2px var(--point--green);
+}
+
+.--option--button--area {
+  margin: 0 1em 0 0.5em;
+  display: -ms-grid;
+  display: grid;
+  grid: auto/repeat(auto-fit, minmax(130px, auto));
+}
+/*# sourceMappingURL=option.css.map */
