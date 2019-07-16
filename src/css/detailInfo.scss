@@ -19,6 +19,9 @@ $desktopwifi: 990px;
     width: 100%;
     position: relative;
     margin: 1em;
+    @include wifiResponse {
+      margin: 1em 0.5em;
+    }
   }
 }
 
@@ -124,6 +127,7 @@ $desktopwifi: 990px;
     @include wifiResponse {
       grid-column: 1;
       grid-row: 3;
+      justify-content: center;
     }
   }
 
@@ -150,12 +154,16 @@ $desktopwifi: 990px;
     grid-row-gap: 0.2em;
 
     @include wifiResponse {
+      width: 96%;
       grid-column: 1;
       grid-row: 2;
-      grid-template-columns: repeat(auto-fit, 8em);
+      grid-template-columns: repeat(auto-fit, minmax(8em, auto));
       justify-content: center;
-      padding: 1em 1em 0 0;
-      grid-row-gap: 0;
+      padding: 0;
+      margin: 0;
+      padding-top: 1em;
+      grid-gap: 0.2em;
+      box-sizing: border-box;
     }
 
     .--detail--item--selected {
@@ -186,7 +194,7 @@ $desktopwifi: 990px;
 
       @include wifiResponse {
         height: 9em;
-        margin: 0.2em;
+        margin: 0;
         padding: 0;
       }
 

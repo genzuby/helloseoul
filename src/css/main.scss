@@ -107,9 +107,9 @@ html {
   white-space: nowrap;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
   animation-name: textanimation;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-fill-mode: both;
-  animation-delay: 6s;
+  animation-delay: 3s;
 
   @include respondScreen(pad) {
     animation-name: textanimation-pad;
@@ -180,7 +180,7 @@ html {
   background-repeat: no-repeat;
   display: flex;
   animation-name: bigimage;
-  animation-duration: 3s;
+  animation-duration: 1.5s;
   animation-fill-mode: both;
   animation-delay: now;
 
@@ -205,9 +205,9 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     animation-name: smallimage;
-    animation-duration: 3s;
+    animation-duration: 1.5s;
     animation-fill-mode: both;
-    animation-delay: 4s;
+    animation-delay: 2s;
 
     @include respondScreen(pad) {
       background-size: cover;
