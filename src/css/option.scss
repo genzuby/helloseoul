@@ -3,7 +3,7 @@
   padding: 0.5em 0;
   margin: 0.1em;
   background: var(--bg--dark--color);
-  font-size: 0.88rem;
+  font-size: calc(0.65rem+ 0.23vw);
   color: var(--bg--gray--color);
   outline: none;
   border-radius: 2px;
@@ -35,7 +35,6 @@
 }
 
 .--option--button--area {
-  margin: 0 1em 0 0.5em;
   display: grid;
-  grid: auto / repeat(auto-fit, minmax(130px, auto));
+  grid: auto / repeat(auto-fit, minmax(100px, auto));
 }

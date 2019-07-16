@@ -52,14 +52,16 @@ $desktopwifi: 990px;
     height: 70vh;
     position: relative !important;
     grid-column: 1;
+
     @include wifiResponse {
-      width: 93%;
+      width: 96%;
       grid-row: 1;
     }
   }
   .--detail-content--opt {
     width: 100%;
     grid-column: 2;
+
     @include wifiResponse {
       width: 96%;
       padding-top: 1em;
@@ -124,9 +126,10 @@ $desktopwifi: 990px;
     grid-column: 2;
     position: relative;
     display: none;
+
     @include wifiResponse {
-      grid-column: 1;
-      grid-row: 3;
+      // grid-column: 1;
+      // grid-row: 3;
       justify-content: center;
     }
   }
@@ -136,6 +139,7 @@ $desktopwifi: 990px;
     height: 70vh;
     position: relative !important;
     grid-column: 2;
+
     @include wifiResponse {
       grid-column: 1;
       grid-row: 1;
@@ -266,7 +270,6 @@ $desktopwifi: 990px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(385px, auto));
   grid-column-gap: 1px;
-  // grid-auto-rows: 10px;
   justify-content: center;
   margin: 0 auto;
   padding: 0;
@@ -331,7 +334,8 @@ $desktopwifi: 990px;
     padding-bottom: 2em;
 
     @include wifiResponse {
-      margin: 0 0.5em;
+      margin: 2em;
+      padding-bottom: 0;
     }
 
     h3 {
