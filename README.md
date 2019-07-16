@@ -10,6 +10,7 @@ es6<br>
 axios<br>
 lodash<br>
 sass(scss)<br>
+styled components<br>
 google-map-react<br>
 react-infinite-scroll-component<br>
 
