@@ -5,6 +5,7 @@ import ImageCard from "./ImageCard";
 import MapContainer from "./MapContainer";
 import _ from "lodash";
 import "../../css/detailInfo.scss";
+import "../../css/loader.scss";
 
 class WalkInfoDetail extends Component {
   renderImg = () => {
@@ -69,7 +70,7 @@ class WalkInfoDetail extends Component {
     const walkDetail = _.get(this.props.walkinfo, this.props.selectContentId);
 
     if (!walkDetail) {
-      return <div>Loading</div>;
+      return <div className="--loader" />;
     }
     return (
       <div className="--detailinfo--selected-container">

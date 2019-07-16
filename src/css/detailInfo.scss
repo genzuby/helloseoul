@@ -79,6 +79,10 @@ $desktopwifi: 990px;
   top: 50vh;
   cursor: pointer;
 
+  @include wifiResponse {
+    display: none;
+  }
+
   &:hover {
     color: var(--point--pink);
   }
@@ -109,10 +113,18 @@ $desktopwifi: 990px;
   display: grid;
   grid: auto / 1fr 1.7fr;
 
+  @include wifiResponse {
+    grid: 1fr auto auto/ auto;
+  }
+
   .--detail--content--info {
     grid-column: 2;
     position: relative;
     display: none;
+    @include wifiResponse {
+      grid-column: 1;
+      grid-row: 3;
+    }
   }
 
   .--map--container {
@@ -120,6 +132,10 @@ $desktopwifi: 990px;
     height: 70vh;
     position: relative !important;
     grid-column: 2;
+    @include wifiResponse {
+      grid-column: 1;
+      grid-row: 1;
+    }
   }
 
   .--detail--content--list {
@@ -133,6 +149,15 @@ $desktopwifi: 990px;
     position: relative;
     grid-row-gap: 0.2em;
 
+    @include wifiResponse {
+      grid-column: 1;
+      grid-row: 2;
+      grid-template-columns: repeat(auto-fit, 8em);
+      justify-content: center;
+      padding: 1em 1em 0 0;
+      grid-row-gap: 0;
+    }
+
     .--detail--item--selected {
       background: var(--light--yellow);
       &::before {
@@ -144,10 +169,12 @@ $desktopwifi: 990px;
         height: 1.6em;
       }
     }
+
     li {
       margin: 0.5em;
       padding: 0.5em 0.5em 1em;
       justify-content: center;
+      align-items: flex-start;
       border: 1px solid rgb(224, 224, 224);
       box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
       cursor: pointer;
@@ -155,16 +182,39 @@ $desktopwifi: 990px;
       font-family: "Roboto", sans-serif;
       height: 19em;
       position: relative;
+      transition: 0.2s ease-in-out;
+
+      @include wifiResponse {
+        height: 9em;
+        margin: 0.2em;
+        padding: 0;
+      }
 
       &:hover {
         border: 1px solid rgb(189, 189, 189);
+        @include wifiResponse {
+          background: rgba(0, 0, 0, 0.45);
+          img {
+            mix-blend-mode: multiply;
+          }
+          h3 {
+            white-space: pre-line;
+            overflow: visible;
+            top: 0.5em;
+          }
+        }
       }
 
       img {
         width: 14em;
         height: 12em;
         object-fit: cover;
+        @include wifiResponse {
+          width: 100%;
+          height: 100%;
+        }
       }
+
       h3 {
         font-size: 1rem;
         margin: 0.5em 0.5em 0.75em;
@@ -174,7 +224,18 @@ $desktopwifi: 990px;
         text-overflow: ellipsis;
         font-weight: 600;
         color: rgb(41, 41, 41);
+
+        @include wifiResponse {
+          font-size: 0.8rem;
+          position: absolute;
+          font-weight: 300;
+          top: 8.5em;
+          left: 0.5em;
+          right: 0.5em;
+          color: #fff;
+        }
       }
+
       p {
         font-size: 0.85rem;
         margin: 0 0.5em;
@@ -182,6 +243,9 @@ $desktopwifi: 990px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        @include wifiResponse {
+          display: none;
+        }
       }
     }
   }
@@ -192,18 +256,23 @@ $desktopwifi: 990px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(385px, auto));
   grid-column-gap: 1px;
-  grid-auto-rows: 10px;
+  // grid-auto-rows: 10px;
   justify-content: center;
   margin: 0 auto;
   padding: 0;
 
+  @include wifiResponse {
+    grid-column-gap: 0;
+    margin: 0.2em auto;
+  }
+
   img {
-    width: 385px;
+    width: 100%;
   }
 }
 
 .--item--desc--icon {
-  font-size: 0.8rem;
+  font-size: calc(0.7rem + 0.1vw);
   color: #fff;
   padding: 0.25em 0.5em;
   text-align: left;
@@ -243,16 +312,25 @@ $desktopwifi: 990px;
   font-family: "Nanum Gothic", sans-serif;
   font-family: "Roboto", sans-serif;
 
+  @include wifiResponse {
+    margin: 0;
+  }
+
   .--detailinfo--selected--desc {
     margin: 0 2em;
     padding-bottom: 2em;
+
+    @include wifiResponse {
+      margin: 0 0.5em;
+    }
+
     h3 {
-      font-size: 1.6rem;
+      font-size: calc(1rem + 0.6vw);
     }
     p {
       margin: 0.2em 0 1.5em 0.5em;
       font-weight: 300;
-      font-size: 0.95rem;
+      font-size: calc(0.75rem + 0.2vw);
     }
   }
   .--detailinfo--selected--map {
@@ -260,6 +338,10 @@ $desktopwifi: 990px;
     height: 50vh;
     margin: 1em auto;
     position: relative !important;
+
+    @include wifiResponse {
+      width: 92%;
+    }
   }
 }
 

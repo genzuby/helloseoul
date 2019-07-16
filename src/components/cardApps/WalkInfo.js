@@ -2,7 +2,9 @@ import React from "react";
 import { fetchWalkList, fetchDetailWalkAll } from "../../actions";
 import { connect } from "react-redux";
 import ListObject from "./ListObject";
+import ListObjectPop from "./ListObjectPop";
 import "../../css/detailInfo.scss";
+import { ViewRes } from "../styledComp";
 
 class WalkInfo extends React.Component {
   state = {
@@ -24,15 +26,26 @@ class WalkInfo extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <ListObject
-          itemName="WALK"
-          lists={this.props.walks}
-          listClick={this.getDetailInfo}
-          selectedItem={this.state.selectedId}
-          listTitle="Walk in Seoul"
-          listDesc="In Seoul, there are a lot of mountains and streams. Of course, there is the huge Han River, as well! 
+        <ViewRes big>
+          <ListObject
+            itemName="WALK"
+            lists={this.props.walks}
+            listClick={this.getDetailInfo}
+            selectedItem={this.state.selectedId}
+            listTitle="Walk in Seoul"
+            listDesc="In Seoul, there are a lot of mountains and streams. Of course, there is the huge Han River, as well! 
            You can not only enjoy the city life, but also some lovely nature here."
-        />
+          />
+        </ViewRes>
+        <ViewRes >
+          <ListObjectPop
+            itemName="WALK"
+            lists={this.props.walks}
+            listTitle="Walk in Seoul"
+            listDesc="In Seoul, there are a lot of mountains and streams. Of course, there is the huge Han River, as well! 
+           You can not only enjoy the city life, but also some lovely nature here."
+          />
+        </ViewRes>
       </React.Fragment>
     );
   }

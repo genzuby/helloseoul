@@ -1,4 +1,5 @@
 import React from "react";
+import { ImgSpan } from "../styledComp";
 
 class ImageCard extends React.Component {
   constructor(props) {
@@ -23,9 +24,9 @@ class ImageCard extends React.Component {
   render() {
     const url = this.props.image;
     return (
-      <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+      <ImgSpan span={this.state.spans}>
         <img ref={this.imageRef} alt={url} src={url} />
-      </div>
+      </ImgSpan>
     );
   }
 }

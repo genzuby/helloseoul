@@ -5,13 +5,11 @@ import ImageCard from "./ImageCard";
 import MapContainer from "./MapContainer";
 import _ from "lodash";
 import "../../css/detailInfo.scss";
+import "../../css/loader.scss";
 
 class EatInfoDetail extends Component {
   renderImg = () => {
-    const picArry = this.props.marketinfo;
-    if (!picArry || !this.props.selectContentId) return;
-
-    const picData = _.get(picArry, this.props.selectContentId);
+    const picData = this.props.marketinfo;
 
     if (!picData.pic) return;
     if (!Array.isArray(picData.pic)) picData.pic = [picData.pic];
@@ -48,14 +46,10 @@ class EatInfoDetail extends Component {
   };
 
   render() {
-    if (!this.props.marketinfo) return;
-    const marketDetail = _.get(
-      this.props.marketinfo,
-      this.props.selectContentId
-    );
+    const marketDetail = this.props.marketinfo;
 
     if (!marketDetail) {
-      return <div>Loading</div>;
+      return <div className="--loader" />;
     }
     return (
       <div className="--detailinfo--selected-container">
@@ -100,9 +94,9 @@ class EatInfoDetail extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    marketinfo: state.marketinfo
+    marketinfo: _.get(state.marketinfo, ownProps.selectContentId)
   };
 };
 

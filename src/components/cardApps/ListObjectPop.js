@@ -3,19 +3,12 @@ import { connect } from "react-redux";
 import { currentLocation } from "../../actions";
 import Menu from "../Menu";
 import MapContainer from "./MapContainer";
-import EatInfoDetail from "./EatInfoDetail";
-import WalkInfoDetail from "./WalkInfoDetail";
 import GotoTop from "./GotoTop";
 import "../../css/detailInfo.scss";
 import { Desc } from "../styledComp";
+import { Link } from "react-router-dom";
 
-class ListObject extends Component {
-  constructor(props) {
-    super(props);
-
-    this.clickFoldList = this.clickFoldList.bind(this);
-  }
-
+class ListObjectPop extends Component {
   state = {
     selectedId: null,
     foldIcon: "fa-arrow-alt-circle-left",
@@ -30,32 +23,29 @@ class ListObject extends Component {
     const dataList = this.props.lists;
     if (!dataList) return;
 
+    const pageLink =
+      this.props.itemName === "EAT" ? "/markets/detail/" : "/walks/detail/";
+
     return dataList.map(data => {
       let imgurl =
         data.firstimage === undefined
           ? "/images/NoImageFound.png"
           : data.firstimage;
       return (
-        <li
-          key={data.contentid}
-          onClick={() => {
-            this.props.listClick(data.contentid);
-            window.scrollTo(0, 0);
-            this.setState({
-              selectedId: data.contentid
-            });
-          }}
-          className={
-            data.contentid === this.state.selectedId
-              ? "--detail--item--selected"
-              : ""
-          }
-        >
-          <img alt={data.title} src={imgurl} />
-          <h3 title={data.title}>{data.title}</h3>
-          <p>{data.addr1}</p>
-          <p>{data.tel}</p>
-        </li>
+        <Link to={`${pageLink}${data.contentid}`} key={data.contentid}>
+          <li
+            className={
+              data.contentid === this.state.selectedId
+                ? "--detail--item--selected"
+                : ""
+            }
+          >
+            <img alt={data.title} src={imgurl} />
+            <h3 title={data.title}>{data.title}</h3>
+            <p>{data.addr1}</p>
+            <p>{data.tel}</p>
+          </li>
+        </Link>
       );
     });
   };
@@ -69,58 +59,16 @@ class ListObject extends Component {
   };
 
   renderDetail = () => {
-    if (!this.props.selectedItem) {
-      return (
-        <div className="--map--container">
-          <MapContainer
-            dataArry={this.makeSoptArray()}
-            zoom={12}
-            centerLoc={this.props.currloc}
-          />
-        </div>
-      );
-    } else {
-      switch (this.props.itemName) {
-        case "EAT":
-          return (
-            <EatInfoDetail
-              selectContentId={this.props.selectedItem}
-              className="--detail--content--info"
-            />
-          );
-        case "WALK":
-          return (
-            <WalkInfoDetail
-              selectContentId={this.props.selectedItem}
-              className="--detail--content--info"
-            />
-          );
-        case "EXPLORE":
-          return (
-            <WalkInfoDetail
-              selectContentId={this.props.selectedItem}
-              className="--detail--content--info"
-            />
-          );
-        default:
-          return null;
-      }
-    }
+    return (
+      <div className="--map--container">
+        <MapContainer
+          dataArry={this.makeSoptArray()}
+          zoom={12}
+          centerLoc={this.props.currloc}
+        />
+      </div>
+    );
   };
-
-  clickFoldList() {
-    if (this.state.foldIcon === "fa-arrow-alt-circle-right") {
-      this.setState({
-        foldIcon: "fa-arrow-alt-circle-left",
-        foldClass: "--detail--content--even"
-      });
-    } else {
-      this.setState({
-        foldIcon: "fa-arrow-alt-circle-right",
-        foldClass: "--detail--content--even--fold"
-      });
-    }
-  }
 
   render() {
     return (
@@ -128,10 +76,7 @@ class ListObject extends Component {
         <Menu selected={this.props.itemName} />
         <div className="--detailinfo--body">
           <span className="--detail--content--fold">
-            <i
-              onClick={this.clickFoldList}
-              className={`far ${this.state.foldIcon}`}
-            />
+            {/* <i className={`far ${this.state.foldIcon}`} /> */}
           </span>
           <div className="--detailinfo--header">
             <h1 className="--detailinfo--title">{this.props.listTitle}</h1>
@@ -149,7 +94,6 @@ class ListObject extends Component {
             <ul className="--detail--content--list">
               {this.renderObjectList()}
             </ul>
-
             {this.renderDetail()}
           </div>
           <GotoTop />
@@ -168,4 +112,4 @@ const MapStateToProps = state => {
 export default connect(
   MapStateToProps,
   { currentLocation }
-)(ListObject);
+)(ListObjectPop);

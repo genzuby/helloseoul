@@ -7,6 +7,7 @@ import MapContainer from "./MapContainer";
 import Menu from "../Menu";
 import AreaOption from "./AreaOption";
 import "../../css/detailInfo.scss";
+import { Desc } from "../styledComp";
 
 class WifiInfo extends React.Component {
   componentDidMount() {
@@ -34,11 +35,16 @@ class WifiInfo extends React.Component {
               data is provided by the government of Seoul, and was last updated
               in April, 2018.
             </p>
-            <p className="--detailinfo--desc--small">
+            <Desc big className="--detailinfo--desc--small">
               When this map is first loaded, the center of it will be your
               current location. When you click a button on the right hand side,
               the map will be relocated in the center of that area.
-            </p>
+            </Desc>
+            <Desc className="--detailinfo--desc--small">
+              When this map is first loaded, the center of it will be your
+              current location. When you click a button on the bottom, the map
+              will be relocated in the center of that area.
+            </Desc>
           </div>
           <div className="--detail--content">
             <div className="--map--container">

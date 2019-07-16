@@ -5,7 +5,9 @@ import {
 } from "../../actions";
 import { connect } from "react-redux";
 import ListObject from "./ListObject";
+import ListObjectPop from "./ListObjectPop";
 import "../../css/detailInfo.scss";
+import { ViewRes } from "../styledComp";
 
 class EatInfo extends React.Component {
   state = {
@@ -27,15 +29,26 @@ class EatInfo extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <ListObject
-          itemName="EAT"
-          lists={this.props.markets}
-          listClick={this.getDetailInfo}
-          selectedItem={this.state.selectedId}
-          listTitle="Traditional Markets : EAT, BUY & FUN"
-          listDesc="There are a lot of traditional markets in Seoul. 
+        <ViewRes big>
+          <ListObject
+            itemName="EAT"
+            lists={this.props.markets}
+            listClick={this.getDetailInfo}
+            selectedItem={this.state.selectedId}
+            listTitle="Traditional Markets : EAT, BUY & FUN"
+            listDesc="There are a lot of traditional markets in Seoul. 
           Here is an authentic list from the Korea Tourism Organization. You can eat, buy, and try many other things."
-        />
+          />
+        </ViewRes>
+        <ViewRes>
+          <ListObjectPop
+            itemName="EAT"
+            lists={this.props.markets}
+            listTitle="Traditional Markets : EAT, BUY & FUN"
+            listDesc="There are a lot of traditional markets in Seoul. 
+          Here is an authentic list from the Korea Tourism Organization. You can eat, buy, and try many other things."
+          />
+        </ViewRes>
       </React.Fragment>
     );
   }
